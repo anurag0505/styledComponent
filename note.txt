@@ -1,0 +1,44 @@
+import styled, { createGlobalStyle } from "styled-components";
+import { ThemeProvider } from "styled-components";
+
+function App() {
+	return (
+		<>
+			<ThemeProvider theme={theme}>
+				<GlobalStyles />
+				<Container>
+					<Title> Hello india </Title>
+				</Container>
+			</ThemeProvider>
+		</>
+	);
+}
+
+export default App;
+
+const GlobalStyles = createGlobalStyle`
+body{
+ background-color: ${(props) => props.theme.colors.secondary};;
+}
+
+`;
+const theme = {
+	colors: {
+		primary: "dark blue",
+		secondary: "tomato",
+		default: "white",
+	},
+};
+
+const Container = styled.div`
+	background-color: aquamarine;
+`;
+
+const Title = styled.h1`
+	font-weight: bold;
+	color: ${(props) => props.theme.colors.secondary};
+`;
+const Disc = styled.p`
+	font-weight: bold;
+	color: ${(props) => props.theme.colors.secondary};
+`;
